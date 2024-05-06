@@ -17,9 +17,12 @@ int calcularsoma(int dado1, int dado2) {
     return dado1 + dado2;
 }
 
+
 int main(void) {
     int jogador1[2], jogador2[2];
     int somaJogador1, somaJogador2;
+    int histjogador1[100], histjogador2[100];
+    int cont = 1;
     
     srand(time(NULL));
     
@@ -27,6 +30,11 @@ int main(void) {
     getchar();
     jogador1[0] = rolardado();
     jogador1[1] = rolardado();
+    
+    histjogador1[cont] = jogador1[0];
+    histjogador1[cont] = jogador1[1];
+    
+    
     printf("Jogador 1: %d + %d\n", jogador1[0], jogador1[1]);
     somaJogador1 = calcularsoma(jogador1[0], jogador1[1]);
     printf("Soma do jogador 1: %d\n", somaJogador1);
@@ -35,9 +43,16 @@ int main(void) {
     getchar();
     jogador2[0] = rolardado();
     jogador2[1] = rolardado();
+    
+    histjogador2[cont] = jogador2[0];
+    histjogador2[cont] = jogador2[1];
+    
     printf("Jogador 2: %d + %d\n", jogador2[0], jogador2[1]);
     somaJogador2 = calcularsoma(jogador2[0], jogador2[1]);
     printf("Soma do jogador 2:%d", somaJogador2);
+    
+    cont++;
+    
     if(somaJogador1 > somaJogador2){
         printf("\nResultado: Jogador 1 venceu");
     } else if(somaJogador1 < somaJogador2){
@@ -45,5 +60,6 @@ int main(void) {
     }else{
         printf("\nResultado: Empatou");
     }
+        
     return 0;
 }
